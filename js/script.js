@@ -1,22 +1,23 @@
-/*==================== toggle icon navbar ====================*/
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+let hr = document.getElementById('hour');
+let min = document.getElementById('min');
+let sec = document.getElementById('sec');
 
+function displayTime(){
+    let date = new Date();
 
-/*==================== scroll sections active link ====================*/
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+    // Getting hour, mins, secs from date
+    let hh = date.getHours();
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
 
-window.onscroll = () => {
+    let hRotation = 30*hh + mm/2;
+    let mRotation = 6*mm;
+    let sRotation = 6*ss;
 
+    hr.style.transform = `rotate(${hRotation}deg)`;
+    min.style.transform = `rotate(${mRotation}deg)`;
+    sec.style.transform = `rotate(${sRotation}deg)`;
 
-    /*==================== sticky navbar ====================*/
+}
 
-    /*==================== remove toggle icon and navbar when click navbar link (scroll) ====================*/
-};
-
-
-/*==================== scroll reveal ====================*/
-
-
-/*==================== typed js ====================*/
+setInterval(displayTime, 1000);
